@@ -1,0 +1,159 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://alagard.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Merchant/Shop.gd" type="Script" id=2]
+[ext_resource path="res://Merchant/lives.png" type="Texture" id=3]
+[ext_resource path="res://Merchant/Apple.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -530 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "TransIn"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -620 ), Vector2( 0, 30 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "TransOut"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 30 ), Vector2( 0, 620 ) ]
+}
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 4 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Max Life",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ) ],
+"loop": true,
+"name": "Restore HP",
+"speed": 5.0
+} ]
+
+[node name="Shop" type="CanvasLayer"]
+pause_mode = 2
+offset = Vector2( 0, -530 )
+transform = Transform2D( 1, 0, 0, 1, 0, -530 )
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color( 1, 1, 1, 0.572549 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -462.0
+margin_top = -257.0
+margin_right = 466.0
+margin_bottom = 229.0
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/TransIn = SubResource( 2 )
+anims/TransOut = SubResource( 3 )
+
+[node name="Close" type="Button" parent="."]
+margin_left = 848.0
+margin_top = 54.0
+margin_right = 961.0
+margin_bottom = 107.0
+custom_fonts/font = ExtResource( 1 )
+text = "Close"
+
+[node name="Control" type="Control" parent="."]
+margin_top = -49.0
+margin_right = 40.0
+margin_bottom = -9.0
+
+[node name="AnimSprite" type="AnimatedSprite" parent="Control"]
+position = Vector2( 512, 253 )
+scale = Vector2( 4, 4.26667 )
+frames = SubResource( 4 )
+animation = "Restore HP"
+
+[node name="Name" type="Label" parent="Control"]
+margin_left = 384.0
+margin_top = 115.0
+margin_right = 640.0
+margin_bottom = 179.0
+custom_fonts/font = ExtResource( 1 )
+text = "Restore HP"
+align = 1
+valign = 1
+
+[node name="Des" type="Label" parent="Control"]
+margin_left = 256.0
+margin_top = 306.0
+margin_right = 768.0
+margin_bottom = 466.0
+custom_fonts/font = ExtResource( 1 )
+text = "Recover a Life
+Cost: 10"
+align = 1
+valign = 1
+
+[node name="Buy" type="Button" parent="Control"]
+margin_left = 429.0
+margin_top = 491.0
+margin_right = 595.0
+margin_bottom = 539.0
+custom_fonts/font = ExtResource( 1 )
+text = "Purchase"
+
+[node name="Next" type="Button" parent="Control"]
+margin_left = 608.0
+margin_top = 221.0
+margin_right = 640.0
+margin_bottom = 285.0
+custom_fonts/font = ExtResource( 1 )
+text = ">"
+
+[node name="Prev" type="Button" parent="Control"]
+margin_left = 384.0
+margin_top = 221.0
+margin_right = 416.0
+margin_bottom = 285.0
+custom_fonts/font = ExtResource( 1 )
+text = "<"
+
+[connection signal="pressed" from="Close" to="." method="_on_Close_pressed"]
+[connection signal="pressed" from="Control/Buy" to="." method="_on_Buy_pressed"]
+[connection signal="pressed" from="Control/Next" to="." method="_on_Next_pressed"]
+[connection signal="pressed" from="Control/Prev" to="." method="_on_Prev_pressed"]
