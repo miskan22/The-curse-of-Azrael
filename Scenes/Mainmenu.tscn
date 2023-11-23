@@ -1,0 +1,125 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://BG/menubg.png" type="Texture" id=1]
+[ext_resource path="res://Buttons/options1.png" type="Texture" id=2]
+[ext_resource path="res://Buttons/quit2.png" type="Texture" id=3]
+[ext_resource path="res://Buttons/mainmenutxt.png" type="Texture" id=4]
+[ext_resource path="res://Buttons/quit3.png" type="Texture" id=5]
+[ext_resource path="res://Buttons/start3.png" type="Texture" id=6]
+[ext_resource path="res://Buttons/options2.png" type="Texture" id=7]
+[ext_resource path="res://Buttons/resume1.png" type="Texture" id=8]
+[ext_resource path="res://Buttons/options3.png" type="Texture" id=9]
+[ext_resource path="res://Buttons/start2.png" type="Texture" id=10]
+[ext_resource path="res://Buttons/quit1.png" type="Texture" id=11]
+[ext_resource path="res://Buttons/start1.png" type="Texture" id=12]
+[ext_resource path="res://Buttons/resume2.png" type="Texture" id=13]
+[ext_resource path="res://Buttons/resume3.png" type="Texture" id=14]
+[ext_resource path="res://Scenes/Mainmenu.gd" type="Script" id=15]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 885, 236 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 885, 236 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 885, 237 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 13 )
+region_rect = Rect2( 0, 0, 885, 236 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 14 )
+region_rect = Rect2( 0, 0, 885, 236 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 885, 237 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 885, 236 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 885, 236 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 885, 237 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 885, 236 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 885, 236 )
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 885, 237 )
+
+[node name="Mainmenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1024.0
+margin_bottom = -600.0
+rect_pivot_offset = Vector2( 649, 730 )
+script = ExtResource( 15 )
+
+[node name="Menubg" type="Sprite" parent="."]
+position = Vector2( 512.5, 301 )
+scale = Vector2( 0.238864, 0.251313 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Mainmenutxt" type="Sprite" parent="."]
+position = Vector2( 179, 123.5 )
+scale = Vector2( 0.264561, 0.313916 )
+texture = ExtResource( 4 )
+
+[node name="Startbtn" type="Button" parent="."]
+margin_left = 83.0
+margin_top = 200.0
+margin_right = 262.0
+margin_bottom = 247.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+
+[node name="Resumebtn" type="Button" parent="."]
+margin_left = 82.0
+margin_top = 254.0
+margin_right = 261.0
+margin_bottom = 301.0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+
+[node name="Optionsbtn" type="Button" parent="."]
+margin_left = 82.0
+margin_top = 308.0
+margin_right = 261.0
+margin_bottom = 355.0
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+
+[node name="Quitbtn" type="Button" parent="."]
+margin_left = 82.0
+margin_top = 389.0
+margin_right = 261.0
+margin_bottom = 436.0
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
+
+[connection signal="pressed" from="Optionsbtn" to="." method="_on_Optionsbtn_pressed"]
+[connection signal="pressed" from="Quitbtn" to="." method="_on_Quitbtn_pressed"]

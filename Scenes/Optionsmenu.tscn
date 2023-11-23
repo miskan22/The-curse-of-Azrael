@@ -1,0 +1,124 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://BG/menubg.png" type="Texture" id=1]
+[ext_resource path="res://Buttons/credits1.png" type="Texture" id=2]
+[ext_resource path="res://Buttons/credits2.png" type="Texture" id=3]
+[ext_resource path="res://Buttons/gamecontrols1.png" type="Texture" id=4]
+[ext_resource path="res://Buttons/back2.png" type="Texture" id=5]
+[ext_resource path="res://Buttons/gamecontrols3.png" type="Texture" id=6]
+[ext_resource path="res://Buttons/credits3.png" type="Texture" id=7]
+[ext_resource path="res://Buttons/sound3.png" type="Texture" id=8]
+[ext_resource path="res://Buttons/sound1.png" type="Texture" id=9]
+[ext_resource path="res://Buttons/optionsmenutxt.png" type="Texture" id=10]
+[ext_resource path="res://Buttons/back1.png" type="Texture" id=11]
+[ext_resource path="res://Buttons/sound2.png" type="Texture" id=12]
+[ext_resource path="res://Buttons/back3.png" type="Texture" id=13]
+[ext_resource path="res://Buttons/gamecontrols2.png" type="Texture" id=14]
+[ext_resource path="res://Scenes/Optionsmenu.gd" type="Script" id=15]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 14 )
+region_rect = Rect2( 0, 0, 885, 236 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 885, 236 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 885, 237 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 885, 236 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 885, 236 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 885, 237 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 885, 236 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 885, 236 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 885, 237 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 885, 236 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 13 )
+region_rect = Rect2( 0, 0, 885, 236 )
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 885, 237 )
+
+[node name="Optionsmenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 15 )
+
+[node name="Menubg" type="Sprite" parent="."]
+position = Vector2( 512.5, 301 )
+scale = Vector2( 0.238864, 0.251313 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Optionsmenutxt" type="Sprite" parent="."]
+position = Vector2( 179, 122 )
+scale = Vector2( 0.206179, 0.312298 )
+texture = ExtResource( 10 )
+
+[node name="Controlsbtn" type="Button" parent="."]
+margin_left = 90.0
+margin_top = 193.0
+margin_right = 269.0
+margin_bottom = 240.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+
+[node name="Soundbtn" type="Button" parent="."]
+margin_left = 89.0
+margin_top = 247.0
+margin_right = 268.0
+margin_bottom = 294.0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+
+[node name="Creditsbtn" type="Button" parent="."]
+margin_left = 89.0
+margin_top = 301.0
+margin_right = 268.0
+margin_bottom = 348.0
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+
+[node name="Backbtn" type="Button" parent="."]
+margin_left = 89.0
+margin_top = 382.0
+margin_right = 268.0
+margin_bottom = 429.0
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
+
+[connection signal="pressed" from="Controlsbtn" to="." method="_on_Controlsbtn_pressed"]
+[connection signal="pressed" from="Soundbtn" to="." method="_on_Soundbtn_pressed"]
+[connection signal="pressed" from="Creditsbtn" to="." method="_on_Creditsbtn_pressed"]
+[connection signal="pressed" from="Backbtn" to="." method="_on_Backbtn_pressed"]

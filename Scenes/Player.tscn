@@ -1,0 +1,126 @@
+[gd_scene load_steps=45 format=2]
+
+[ext_resource path="res://Player/Running/Idle and running_14.png" type="Texture" id=1]
+[ext_resource path="res://Player/DuckAttack/Low attack_2.png" type="Texture" id=2]
+[ext_resource path="res://Player/DuckAttack/Low attack_5.png" type="Texture" id=3]
+[ext_resource path="res://Player/DuckAttack/Low attack_6.png" type="Texture" id=4]
+[ext_resource path="res://Player/Running/Idle and running_10.png" type="Texture" id=5]
+[ext_resource path="res://Player/DuckAttack/Low attack_1.png" type="Texture" id=6]
+[ext_resource path="res://Audio/Arrow.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Player/DuckAttack/Low attack_4.png" type="Texture" id=8]
+[ext_resource path="res://Player/Running/Idle and running_12.png" type="Texture" id=11]
+[ext_resource path="res://Player/Running/Idle and running_13.png" type="Texture" id=12]
+[ext_resource path="res://Player/DuckAttack/Low attack_3.png" type="Texture" id=13]
+[ext_resource path="res://Player/Running/Idle and running_11.png" type="Texture" id=14]
+[ext_resource path="res://Player/Running/Idle and running_16.png" type="Texture" id=15]
+[ext_resource path="res://Player/Running/Idle and running_9.png" type="Texture" id=16]
+[ext_resource path="res://Player/Running/Idle and running_15.png" type="Texture" id=17]
+[ext_resource path="res://Player/Death/death_16.png" type="Texture" id=18]
+[ext_resource path="res://Player/Normal Attack/Normal Attack_8.png" type="Texture" id=19]
+[ext_resource path="res://Player/Death/death_17.png" type="Texture" id=20]
+[ext_resource path="res://Player/Normal Attack/Normal Attack_0.png" type="Texture" id=21]
+[ext_resource path="res://Player/Normal Attack/Normal Attack_7.png" type="Texture" id=22]
+[ext_resource path="res://Player/Normal Attack/Normal Attack_4.png" type="Texture" id=23]
+[ext_resource path="res://Player/Death/death_15.png" type="Texture" id=24]
+[ext_resource path="res://Player/Normal Attack/Normal Attack_3.png" type="Texture" id=26]
+[ext_resource path="res://Player/Normal Attack/Normal Attack_1.png" type="Texture" id=27]
+[ext_resource path="res://Player/Normal Attack/Normal Attack_5.png" type="Texture" id=28]
+[ext_resource path="res://Player/Normal Attack/Normal Attack_10.png" type="Texture" id=29]
+[ext_resource path="res://Player/Normal Attack/Normal Attack_6.png" type="Texture" id=30]
+[ext_resource path="res://Player/Normal Attack/Normal Attack_9.png" type="Texture" id=31]
+[ext_resource path="res://Player/Idle/Idle and running_2.png" type="Texture" id=32]
+[ext_resource path="res://Player/Duck/Low attack_8.png" type="Texture" id=33]
+[ext_resource path="res://Player/Duck/Low attack_9.png" type="Texture" id=34]
+[ext_resource path="res://Player/Duck/Low attack_10.png" type="Texture" id=35]
+[ext_resource path="res://Player/Idle/Idle and running_1.png" type="Texture" id=36]
+[ext_resource path="res://Player/Death/death_9.png" type="Texture" id=39]
+[ext_resource path="res://Player/Death/death_13.png" type="Texture" id=40]
+[ext_resource path="res://Player/Death/death_14.png" type="Texture" id=42]
+[ext_resource path="res://Player/Death/death_10.png" type="Texture" id=44]
+[ext_resource path="res://Player/Jumping/Jumping_4.png" type="Texture" id=45]
+[ext_resource path="res://Player/Jumping/Jumping_1.png" type="Texture" id=48]
+[ext_resource path="res://Player/Death/death_8.png" type="Texture" id=49]
+[ext_resource path="res://Player/Death/death_12.png" type="Texture" id=50]
+[ext_resource path="res://Player/Player.gd" type="Script" id=55]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 49 ), ExtResource( 39 ), ExtResource( 44 ), ExtResource( 50 ), ExtResource( 40 ), ExtResource( 42 ), ExtResource( 24 ), ExtResource( 18 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "Death",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "Duck",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 2 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Duckandattack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 45 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 36 ), ExtResource( 36 ), ExtResource( 32 ), ExtResource( 32 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 48 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 5 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 1 ), ExtResource( 17 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 27 ), ExtResource( 23 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 26 ), ExtResource( 19 ), ExtResource( 22 ), ExtResource( 31 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "Shoot",
+"speed": 30.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 14.0
+height = 46.0
+
+[node name="Player" type="KinematicBody2D"]
+z_index = 1
+script = ExtResource( 55 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 2, 2 )
+frames = SubResource( 1 )
+animation = "Idle"
+speed_scale = 1.5
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1, 5 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 10, 0 )
+current = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+editor_draw_limits = true
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 61, 0 )
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.449
+one_shot = true
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

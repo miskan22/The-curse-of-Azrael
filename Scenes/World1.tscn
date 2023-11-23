@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Tiles/Forest/SET1_bakcground_day1.png" type="Texture" id=1]
+[ext_resource path="res://Tiles/Forest/SET1_bakcground_day3.png" type="Texture" id=2]
+[ext_resource path="res://Tiles/Forest/SET1_background_obj.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/World1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Tiles/Forest/Forestile.tres" type="TileSet" id=5]
+
+[node name="World1" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1408, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 384, 224 )
+scale = Vector2( 2.2, 2.26087 )
+texture = ExtResource( 1 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1408, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 384, 224 )
+scale = Vector2( 2.2, 2.26087 )
+texture = ExtResource( 2 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1408, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 832, 224 )
+scale = Vector2( 1.68421, 2.26087 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 416, 0, 304, 368 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1408, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2( -68, 224 )
+scale = Vector2( 2.95455, 2.26087 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 736, 0, 176, 368 )
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1408, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2( 288, 432 )
+scale = Vector2( 1.625, 2.18947 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 144, 178, 128, 190 )
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1408, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer6"]
+position = Vector2( 483.5, 324.375 )
+scale = Vector2( 1.77679, 2.1744 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 288, 77, 112, 291 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( -168, 136 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 32, 32 )
+cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 786426, 0, 0, 786427, 0, 0, 786428, 0, 0, 851964, 0, 0, 851965, 0, 0, 851966, 0, 0, 851967, 0, 0, 786432, 0, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 10, 0 )

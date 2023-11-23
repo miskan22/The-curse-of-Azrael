@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://korean.H2MkpB.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/Paused.gd" type="Script" id=2]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+font_data = ExtResource( 1 )
+
+[node name="Pausemenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -113.0
+margin_top = -76.0
+margin_right = 1115.0
+margin_bottom = 684.0
+theme = SubResource( 1 )
+color = Color( 0, 0, 0, 0.619608 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 0.322
+margin_left = 367.0
+margin_top = 226.0
+margin_right = 308.272
+margin_bottom = 298.0
+custom_colors/font_color = Color( 0, 1, 0.8, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "GAME PAUSED"
+autowrap = true
+
+[node name="Resumebtn" type="Button" parent="."]
+margin_left = 396.0
+margin_top = 300.0
+margin_right = 587.0
+margin_bottom = 338.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 1, 0.8, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "RESUME"
+
+[node name="Quitbtn" type="Button" parent="."]
+margin_left = 395.0
+margin_top = 354.0
+margin_right = 585.0
+margin_bottom = 392.0
+custom_colors/font_color = Color( 0, 1, 0.8, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "QUIT"
+
+[connection signal="pressed" from="Resumebtn" to="." method="_on_Resumebtn_pressed"]
+[connection signal="pressed" from="Quitbtn" to="." method="_on_Quitbtn_pressed"]

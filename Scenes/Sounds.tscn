@@ -1,0 +1,95 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://korean.H2MkpB.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Buttons/back1.png" type="Texture" id=2]
+[ext_resource path="res://Buttons/soundstxt.png" type="Texture" id=3]
+[ext_resource path="res://BG/gb4.png" type="Texture" id=4]
+[ext_resource path="res://Buttons/back2.png" type="Texture" id=5]
+[ext_resource path="res://Buttons/back3.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Sounds.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 885, 236 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 885, 236 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 885, 237 )
+
+[node name="Soundsmenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 7 )
+
+[node name="Gb4" type="Sprite" parent="."]
+position = Vector2( 512.5, 301 )
+scale = Vector2( 0.236938, 0.251313 )
+texture = ExtResource( 4 )
+
+[node name="Soundstxt" type="Sprite" parent="."]
+position = Vector2( 110.5, 120 )
+scale = Vector2( 0.263158, 0.33657 )
+texture = ExtResource( 3 )
+
+[node name="CheckButton" type="CheckButton" parent="."]
+margin_left = 153.0
+margin_top = 255.0
+margin_right = 302.0
+margin_bottom = 383.0
+
+[node name="HSlider" type="HSlider" parent="."]
+margin_left = 628.0
+margin_top = 219.0
+margin_right = 925.0
+margin_bottom = 419.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 570.0
+margin_top = 229.0
+margin_right = 967.0
+margin_bottom = 432.0
+custom_fonts/font = SubResource( 1 )
+text = " Volume  Control
+
+
+ min                max"
+
+[node name="Label2" type="Label" parent="."]
+anchor_left = 0.033
+anchor_top = 0.365
+anchor_right = 0.434
+anchor_bottom = 0.8
+margin_left = 0.208
+margin_top = 8.0
+margin_right = -0.416016
+margin_bottom = -7.0
+size_flags_stretch_ratio = 12.89
+custom_fonts/font = SubResource( 2 )
+text = "     Sound Control
+	
+	
+	      on             off
+		"
+
+[node name="Backbtn" type="Button" parent="."]
+margin_left = 50.0
+margin_top = 512.0
+margin_right = 229.0
+margin_bottom = 559.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+
+[connection signal="pressed" from="Backbtn" to="." method="_on_Backbtn_pressed"]
